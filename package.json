@@ -1,0 +1,36 @@
+{
+  "name": "ai-task-agent",
+  "displayName": "AI Task Agent",
+  "description": "An AI-powered task automation extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:ai-task-agent.start"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-task-agent.start",
+        "title": "AI Task Agent: Start"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "node_modules/.bin/esbuild src/extension.js --bundle --outfile=out/extension.js --platform=node --external:vscode",
+    "watch": "npm run compile -- --watch"
+  },
+  "dependencies": {
+    "axios": "^1.6.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "esbuild": "^0.20.2"
+  }
+}
